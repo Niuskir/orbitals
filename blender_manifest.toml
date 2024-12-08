@@ -1,0 +1,31 @@
+schema_version = "1.0.0"
+
+id = "electron_orbitals_new_3D"
+version = "1.0.0"
+name = "Hydrogen electron orbitals New"
+tagline = "Create a mesh object representing hydrogen electron orbitals based on n,l and m"
+maintainer = "Niek"
+# Supported types: "add-on", "theme"
+type = "add-on"
+
+website = "https://github.com/Niuskir/Electron-Orbitals-Blender-3D/blob/master/README.md"
+tags = ["Animation", "Sequencer"]
+
+blender_version_min = "4.2.0"
+
+# License conforming to https://spdx.org/licenses/ (use "SPDX: prefix)
+# https://docs.blender.org/manual/en/dev/advanced/extensions/licenses.html
+license = [
+  "SPDX:GPL-3.0-or-later",
+]
+
+wheels = [
+   "./wheels/scipy-1.14.1-cp311-cp311-win_amd64.whl",
+   "./wheels/scikit_image-0.24.0-cp311-cp311-win_amd64.whl",
+   "./wheels/imageio-2.36.1-py3-none-any.whl",
+   "./wheels/lazy_loader-0.4-py3-none-any.whl",
+   "./wheels/networkx-3.4.2-py3-none-any.whl",
+   "./wheels/packaging-24.2-py3-none-any.whl",
+   "./wheels/pillow-11.0.0-cp311-cp311-win_amd64.whl",
+   "./wheels/tifffile-2024.9.20-py3-none-any.whl"
+]
