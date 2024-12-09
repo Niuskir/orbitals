@@ -507,6 +507,10 @@ class Electron_orbitals_input(Operator):
 
             print(obj_name + " created")
             
+            bpy.ops.object.origin_set(type='ORIGIN_GEOMETRY', center='MEDIAN')
+
+            obj.location = [0,0,0]
+
             color_value = (( (iso - old_min) / (old_max - old_min) ))
             
             #if last loop make alpha value a fixed value for better visualization
