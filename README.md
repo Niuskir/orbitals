@@ -1,9 +1,9 @@
-# Hydrogen Wavefunctions & Electron Density orbitals visualization in 3D
+# A Blender 3D extension to visualize Hydrogen Wavefunctions & Electron Density orbitals in 3D
 
-An Extension for Blender 3D Fee Software Modeling which allows you to visualize 
-electron probability density wave functions in a Hydrogen atom/
+An Extension for Blender 3D Fee Software to visualize 
+electron probability density wave functions in a Hydrogen atom.
 
-Blender 3D is freeware and you can download it here: https://www.blender.org/download/
+Blender 3D is freeware: https://www.blender.org/download/
 
 Extension tested on Blender 4.2 & 4.3 Beta 
 
@@ -14,21 +14,22 @@ This Blender Extension is based on the "Hydrogen Wavefunctions & Electron Densit
 ### Execution
 
 * [Dowload Extension zip file from Github:](https://github.com/Niuskir/orbitals/archive/refs/heads/main.zip)
-Install Extension in Blender (search Youtube "How to install an Extension in Blender".
+
+To install the Extension in Blender search Youtube for "How to install an Extension in Blender".
 
 After installing the Extension (using option "Install from disk"), do the following:
 1) Change viewport "Clip End" to 10000
 2) Change "Transparent Max Bounces" for Cycles Rendering to at least 10 above the number of isolevels you have defined
 
-This Extension:
+What this Extension does:
 
-1) Computes the normalized wavefunction as a product of its radial and angular components
+1) Computes the normalized wavefunction as a product of its radial and angular components in 3D
 2) Computes the probability density of the hydrogen atom's wavefunction for a given quantum state (n,l,m)
 4) Then uses the Marching cubes algorithm to extract 3D surface data from the probability density data based on specific isosurface values.
 5) From the 3D suface data triangulations are generated and the result is a set of vertices and a set of triangular faces.
-6) This set of vertices and faces is then used to create a mesh representing the probability of finding the electron in a hydrogen atom at the given quantum state and isolevel.
+6) This set of vertices and faces is then used to create Blender meshes and objects representing the probability of finding the electron in a hydrogen atom at the given quantum state and isolevel.
 
-To execute: Add > Mesh > Generate Electron Orbitals
+To execute the Extension: Add > Mesh > Generate Electron Orbitals
 
 ---
 
@@ -39,10 +40,10 @@ The input arguments of the Extension:
 1) n (int): principal quantum number
 2) l (int): azimuthal quantum number
 3) m (int): magnetic quantum number
-4) The grid extent
-5) The grid resolution
-6) The number of iso levels
-7) a0_scale_factor (float): Bohr radius scale factor
+4) The grid extent (int)
+5) The grid resolution (int)
+6) The number of iso levels (int)
+7) a0_scale_factor (float): Bohr radius scale factor (float)
 
 ---
 
