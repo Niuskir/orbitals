@@ -17,14 +17,14 @@ The Blender Extension is freeware.
 
 This Blender Extension contains the following Python modules (as Wheels):
 
-scipy-1.14.1
-scikit_image-0.24.0
-imageio-2.36.1
-lazy_loader-0.4
-networkx-3.4.2
-packaging-24.2
-pillow-11.0.0
-tifffile-2024.9.20
+1) scipy-1.14.1
+2) scikit_image-0.24.0
+3) imageio-2.36.1
+4) lazy_loader-0.4
+5) networkx-3.4.2
+6) packaging-24.2
+7) pillow-11.0.0
+8) tifffile-2024.9.20
 
 To install the Extension in Blender search Youtube for "How to install an Extension in Blender".
 
