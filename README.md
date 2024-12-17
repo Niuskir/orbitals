@@ -48,7 +48,6 @@ The input arguments of the Extension:
 
 The Bohr radius scale factor needs to be specified lower as the n value is higher as otherwise the generated iso surface mesh sizes will exceed the grid extent. For example for n=20, l=13, m=8 the scale factor needs to be 0.03  
 You can re-run The Extension as many times as you want. It will automatically delete all previous generated
----
 
 For extremely high quantum numbers, the following effects can be observed:
 
