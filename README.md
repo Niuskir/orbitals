@@ -6,13 +6,25 @@ Extension tested on Blender 4.2 & 4.3 Beta
 
 ### Acknowledgement
 
-This Blender Extension is based on "Hydrogen Wavefunctions & Electron Density Plots" in Github: https://github.com/ssebastianmag/hydrogen-wavefunctions/. 
+To create this Blender Extension i used as a base the great work done by Sebastian with "Hydrogen Wavefunctions & Electron Density Plots" in Github: https://github.com/ssebastianmag/hydrogen-wavefunctions/.
+I have extended this 2D plotting capability to 3D "plots" customized for easy use in Blender. 
 
 ### Execution
 
 The Blender Extension is freeware.
 
 * [Dowload Extension zip file from Github:](https://github.com/Niuskir/orbitals/archive/refs/heads/main.zip)
+
+This Blender Extension contains the following Python modules (as Wheels):
+
+scipy-1.14.1
+scikit_image-0.24.0
+imageio-2.36.1
+lazy_loader-0.4
+networkx-3.4.2
+packaging-24.2
+pillow-11.0.0
+tifffile-2024.9.20
 
 To install the Extension in Blender search Youtube for "How to install an Extension in Blender".
 
