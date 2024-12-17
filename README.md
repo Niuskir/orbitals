@@ -1,198 +1,54 @@
-# A Blender 3D extension to visualize Hydrogen Wavefunctions & Electron Density orbitals in 3D
+# A Blender 3D extension to visualize Hydrogen Electron Density orbitals in 3D
 
-An Extension for Blender 3D Fee Software to visualize 
-electron probability density wave functions in a Hydrogen atom.
-
-Blender 3D is freeware: https://www.blender.org/download/
+Blender 3D is freeware and can be downloaded here: https://www.blender.org/download/
 
 Extension tested on Blender 4.2 & 4.3 Beta 
 
 ### Acknowledgement
 
-This Blender Extension is based on the "Hydrogen Wavefunctions & Electron Density Plots" work which can be found here: https://github.com/ssebastianmag/hydrogen-wavefunctions/
+This Blender Extension is based on "Hydrogen Wavefunctions & Electron Density Plots" in Github: https://github.com/ssebastianmag/hydrogen-wavefunctions/. 
 
 ### Execution
+
+The Blender Extension is freeware.
 
 * [Dowload Extension zip file from Github:](https://github.com/Niuskir/orbitals/archive/refs/heads/main.zip)
 
 To install the Extension in Blender search Youtube for "How to install an Extension in Blender".
 
-After installing the Extension (using option "Install from disk"), do the following:
-1) Change viewport "Clip End" to 10000
-2) Change "Transparent Max Bounces" for Cycles Rendering to at least 10 above the number of isolevels you have defined
+After installing the Extension in Blender:
+1) Change 3D Viewport and Camera object "Clip End" options to 5000
+2) Change Blender Render Engine to EEVEE
 
 What this Extension does:
 
 1) Computes the normalized wavefunction as a product of its radial and angular components in 3D
-2) Computes the probability density of the hydrogen atom's wavefunction for a given quantum state (n,l,m)
+2) Computes the probability density of the hydrogen atom's wavefunction for the quantum state (n,l,m) and number of iso levels you entered.
 4) Then uses the Marching cubes algorithm to extract 3D surface data from the probability density data based on specific isosurface values.
 5) From the 3D suface data triangulations are generated and the result is a set of vertices and a set of triangular faces.
 6) This set of vertices and faces is then used to create Blender meshes and objects representing the probability of finding the electron in a hydrogen atom at the given quantum state and isolevel.
-
-To execute the Extension: Add > Mesh > Generate Electron Orbitals
+7) The extension automatically creates for each iso level a separate material with a customized transparency + color such that you can visualize in 3D where the electron is most likely to be found   
+   
+To execute the Extension in the Blender Viewport: Add > Mesh > Generate Electron Orbitals
 
 ---
 
-#### Arguments:
+#### Extension Arguments:
 
 The input arguments of the Extension:
 
-1) n (int): principal quantum number
-2) l (int): azimuthal quantum number
-3) m (int): magnetic quantum number
-4) The grid extent (int)
-5) The grid resolution (int)
-6) The number of iso levels (int)
-7) a0_scale_factor (float): Bohr radius scale factor (float)
+1) n (int): principal quantum number (default 3)
+2) l (int): azimuthal quantum number (default 1)
+3) m (int): magnetic quantum number (default 1)
+4) The grid extent (int) (default 480) (higher values will increase compute time)
+5) The grid resolution (int) (default 400) (higher value will increate compute time)
+6) The number of iso levels (int) (default 1)
+7) a0_scale_factor (float): Bohr radius scale factor (float) (default 0.4)
+8) Delete all generated iso surfaces objects? (boolean)
 
+The Bohr radius scale factor needs to be specified lower as the n value is higher as otherwise the generated iso surface mesh sizes will exceed the grid extent. For example for n=20, l=13, m=8 the scale factor needs to be 0.03  
+You can re-run The Extension as many times as you want. It will automatically delete all previous generated
 ---
-
-#### Input args:
-
-|    Parameter    |            Description            | Value |  Constraint   |
-|:---------------:|:---------------------------------:|:-----:|:-------------:|
-|        n        |  Principal quantum number ($n$)   |   3   |    1 <= n     |
-|        l        | Azimuthal quantum number ($\ell$) |   2   | 0 <= l <= n-1 |
-|        m        |   Magnetic quantum number ($m$)   |   1   | -l <= m <= l  |
-| Grid extent     | The size of the grid used         |  480  |               |
-| Grid resolution | The resolution of the grid        |  200  |               |
-| Isolevels       | Number of isolevels to generate   |  10   |               |
-| a0_scale_factor | Bohr radius scale factor ($a_0$)  |  0.3  |               |
-
-
-#### Output:
-
-<p align='left'>
-  <!-- <img src='https://github.com/ssebastianmag/hydrogen-wavefunctions/blob/edda6d746cbe2163f2e92e1191126d0fe7d6488a/img/(3%2C2%2C1)%5Blt%5D.png' width=60% /> -->
-</p>
-
----
-
-#### Input args:
-
-|    Parameter    |            Description            | Value |  Constraint   |
-|:---------------:|:---------------------------------:|:-----:|:-------------:|
-|        n        |  Principal quantum number ($n$)   |   3   |    1 <= n     |
-|        l        | Azimuthal quantum number ($\ell$) |   2   | 0 <= l <= n-1 |
-|        m        |   Magnetic quantum number ($m$)   |   1   | -l <= m <= l  |
-| Grid extent     | The size of the grid used         |  480  |               |
-| Grid resolution | The resolution of the grid        |  200  |               |
-| Isolevels       | Number of isolevels to generate   |  10   |               |
-| a0_scale_factor | Bohr radius scale factor ($a_0$)  |  0.3  |               |
-
-#### Output:
-
-<p align='left'>
-  <!-- <img src='https://github.com/ssebastianmag/hydrogen-wavefunctions/blob/edda6d746cbe2163f2e92e1191126d0fe7d6488a/img/(3%2C2%2C1)%5Bdt%5D.png' width=60% /> -->
-</p>
-
----
-
-#### Input args:
-
-|    Parameter    |            Description            | Value |  Constraint   |
-|:---------------:|:---------------------------------:|:-----:|:-------------:|
-|        n        |  Principal quantum number ($n$)   |   3   |    1 <= n     |
-|        l        | Azimuthal quantum number ($\ell$) |   2   | 0 <= l <= n-1 |
-|        m        |   Magnetic quantum number ($m$)   |   1   | -l <= m <= l  |
-| Grid extent     | The size of the grid used         |  480  |               |
-| Grid resolution | The resolution of the grid        |  200  |               |
-| Isolevels       | Number of isolevels to generate   |  10   |               |
-| a0_scale_factor | Bohr radius scale factor ($a_0$)  |  0.3  |               |
-
-#### Output:
-
-<p align='left'>
-  <!-- <img src='https://github.com/ssebastianmag/hydrogen-wavefunctions/blob/edda6d746cbe2163f2e92e1191126d0fe7d6488a/img/(4%2C3%2C0)%5Blt%5D.png' width=60% /> -->
-</p>
-
----
-
-#### Input args:
-
-|    Parameter    |            Description            | Value |  Constraint   |
-|:---------------:|:---------------------------------:|:-----:|:-------------:|
-|        n        |  Principal quantum number ($n$)   |   3   |    1 <= n     |
-|        l        | Azimuthal quantum number ($\ell$) |   2   | 0 <= l <= n-1 |
-|        m        |   Magnetic quantum number ($m$)   |   1   | -l <= m <= l  |
-| Grid extent     | The size of the grid used         |  480  |               |
-| Grid resolution | The resolution of the grid        |  200  |               |
-| Isolevels       | Number of isolevels to generate   |  10   |               |
-| a0_scale_factor | Bohr radius scale factor ($a_0$)  |  0.3  |               |
-
-#### Output:
-
-<p align='left'>
-  <!-- <img src='https://github.com/ssebastianmag/hydrogen-wavefunctions/blob/edda6d746cbe2163f2e92e1191126d0fe7d6488a/img/(4%2C3%2C0)%5Bdt%5D.png' width=60% /> -->
-</p>
-
----
-
-#### Input args:
-
-|    Parameter    |            Description            | Value |  Constraint   |
-|:---------------:|:---------------------------------:|:-----:|:-------------:|
-|        n        |  Principal quantum number ($n$)   |   3   |    1 <= n     |
-|        l        | Azimuthal quantum number ($\ell$) |   2   | 0 <= l <= n-1 |
-|        m        |   Magnetic quantum number ($m$)   |   1   | -l <= m <= l  |
-| Grid extent     | The size of the grid used         |  480  |               |
-| Grid resolution | The resolution of the grid        |  200  |               |
-| Isolevels       | Number of isolevels to generate   |  10   |               |
-| a0_scale_factor | Bohr radius scale factor ($a_0$)  |  0.3  |               |
-
-#### Output:
-
-<p align='left'>
-  <!-- <img src='https://github.com/ssebastianmag/hydrogen-wavefunctions/blob/edda6d746cbe2163f2e92e1191126d0fe7d6488a/img/(4%2C3%2C1)%5Bdt%5D.png' width=60% /> -->
-</p>
-
-As we examine the electron density plots corresponding to the quantum numbers above, 
-we notice that with increasing principal quantum number $n$, 
-the complexity of the wavefunction grows Specifically:
-
-- The number of nodes (regions where the probability density is zero) increases.
-- The electron's spatial distribution expands, covering larger regions around the nucleus. 
-- The overall shape of the atomic orbital becomes more intricate and detailed.
-
----
-
-#### Input args:
-
-|    Parameter    |            Description            | Value |  Constraint   |
-|:---------------:|:---------------------------------:|:-----:|:-------------:|
-|        n        |  Principal quantum number ($n$)   |   3   |    1 <= n     |
-|        l        | Azimuthal quantum number ($\ell$) |   2   | 0 <= l <= n-1 |
-|        m        |   Magnetic quantum number ($m$)   |   1   | -l <= m <= l  |
-| Grid extent     | The size of the grid used         |  480  |               |
-| Grid resolution | The resolution of the grid        |  200  |               |
-| Isolevels       | Number of isolevels to generate   |  10   |               |
-| a0_scale_factor | Bohr radius scale factor ($a_0$)  |  0.3  |               |
-
-#### Output:
-
-<p align='left'>
-  <!-- <img src='https://github.com/ssebastianmag/hydrogen-wavefunctions/blob/edda6d746cbe2163f2e92e1191126d0fe7d6488a/img/(9%2C6%2C1)%5Bdt%5D.png' width=60% /> -->
-</p>
-
----
-
-#### Input args:
-
-|    Parameter    |            Description            | Value |  Constraint   |
-|:---------------:|:---------------------------------:|:-----:|:-------------:|
-|        n        |  Principal quantum number ($n$)   |   3   |    1 <= n     |
-|        l        | Azimuthal quantum number ($\ell$) |   2   | 0 <= l <= n-1 |
-|        m        |   Magnetic quantum number ($m$)   |   1   | -l <= m <= l  |
-| Grid extent     | The size of the grid used         |  480  |               |
-| Grid resolution | The resolution of the grid        |  200  |               |
-| Isolevels       | Number of isolevels to generate   |  10   |               |
-| a0_scale_factor | Bohr radius scale factor ($a_0$)  |  0.3  |               |
-
-#### Output:
-
-<p align='left'>
-  <!-- <img src='https://github.com/ssebastianmag/hydrogen-wavefunctions/blob/edda6d746cbe2163f2e92e1191126d0fe7d6488a/img/(20%2C10%2C5)%5Bdt%5D.png' width=60% /> -->
-</p>
 
 For extremely high quantum numbers, the following effects can be observed:
 
