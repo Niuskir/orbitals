@@ -306,7 +306,7 @@ class Electron_orbitals_input(Operator):
                 description="The principal quantum number (n) "
                             "describes the size of the orbital.",
                 min=1,
-                max=10,
+                max=50,
                 default=3
                 )
     l: IntProperty(
@@ -314,7 +314,7 @@ class Electron_orbitals_input(Operator):
                 description="The angular quantum number (l) "
                             "describes the shape of the orbital.",
                 min=0,
-                max=9,
+                max=49,
                 default=1
                 )
     m: IntProperty(
@@ -322,8 +322,8 @@ class Electron_orbitals_input(Operator):
                 description="Magnetic quantum number (m), "
                             "to describe the orientation in "
                             "space of a particular orbital.",
-                min=-9,
-                max=9,
+                min=-49,
+                max=49,
                 default=1
                 )
 
