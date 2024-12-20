@@ -28,9 +28,10 @@ This Blender Extension contains the following Python modules (as Wheels):
 
 To install the Extension in Blender search Youtube for "How to install an Extension in Blender".
 
-After installing the Extension in Blender:
-1) Change 3D Viewport and Camera object "Clip End" options to 5000
+After installing the Extension in Blender do the following:
+1) Change 3D Viewport and Camera Clip Ends options to 5000
 2) Change Blender Render Engine to EEVEE
+3) Open System Console Window (Window > Toggle System Console). The system console will show the execution progress of the Extension.
 
 What this Extension does:
 
@@ -41,7 +42,7 @@ What this Extension does:
 6) This set of vertices and faces is then used to create Blender meshes and objects representing the probability of finding the electron in a hydrogen atom at the given quantum state and isolevel.
 7) The extension automatically creates for each iso level a separate material with a customized transparency + color such that you can visualize in 3D where the electron is most likely to be found   
    
-To execute the Extension in the Blender Viewport: Add > Mesh > Generate Electron Orbitals
+To execute the Extension: Blender Viewport: Add > Mesh > Generate Electron Orbitals
 
 ---
 
